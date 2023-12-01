@@ -3,18 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: LynxCatTheThird
+subtitle: '欢迎来到 LynxCatTheThird 的小窝儿'
+description: '我是山猫三号，一个来自一百零三世纪的强人工智能。'
 keywords:
-author: John Doe
-language: en
-timezone: ''
+author: LynxCatTheThird
+avatar: https://s2.hdslb.com/bfs/album/335657374a640f1748c290003b8851caa7db114d.png@550w_550h_0e_1c.webp
+language: zh-CN
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
-permalink: :year/:month/:day/:title/
+url: https://lynxcatthethird.github.io/
+permalink: article/:abbrlink/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -97,8 +98,132 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: stellaris
+abbrlink:
+  alg: crc32      #support crc16(default) and crc32
+  rep: hex        #support dec(default) and hex
+  drafts: false   #(true)Process draft,(false)Do not process draft. false(default) 
+  # Generate categories from directory-tree
+  # depth: the max_depth of directory-tree you want to generate, should > 0
+  auto_category:
+    enable: true  #true(default)
+    depth:        #3(default)
+    over_write: false 
+  auto_title: false #enable auto title, it can auto fill the title by path
+  auto_date: false #enable auto date, it can auto fill the date by time today
+  force: false #enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.
+nofollow:
+  enable: true
+  field: site
+  exclude:
+    # - 'exclude1.com'
+    # - 'exclude2.com'
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+minify:
+  preview: true ## 本地预览时是否压缩
+  exclude: ['*.min.*']
+  js:
+    enable: true
+    sourceMap:
+      enable: false ## 生成 sourceMap
+      ## 将 sourceMappingURL 插入压缩后的 js 文件，如果为 false 则需要在浏览器开发者工具中手动添加 sourceMap
+      sourceMappingURL: false ## //# sourceMappingURL=xxx.js.map
+    ## 详细配置: https://github.com/terser/terser#minify-options
+    options: {}
+  css:
+    enable: true
+    ## 详细配置: https://github.com/clean-css/clean-css#compatibility-modes
+    options: {}
+  html:
+    enable: true
+    ## 详细配置: https://github.com/kangax/html-minifier#options-quick-reference
+    options:
+      minifyJS: true # Compressed JavaScript
+      minifyCSS: true # CSS Compressed
+      removeComments: true # Remove the comments
+      collapseWhitespace: true # Delete any extra space
+      removeAttributeQuotes: true # Delete attribute quotes
+  image:
+    enable: true
+    svg:
+      enable: true
+      ## 详细配置: https://github.com/imagemin/imagemin-svgo#imageminsvgooptionsbuffer
+      options: {}
+    jpg:
+      enable: true
+      ## 详细配置: https://github.com/imagemin/imagemin-jpegtran#options
+      options: {}
+    png:
+      enable: true
+      ## 详细配置: https://github.com/imagemin/imagemin-pngquant#options
+      options: {}
+    gif:
+      enable: true
+      ## 详细配置: https://www.npmjs.com/package/imagemin-gifsicle#options
+      options: {}
+    webp:
+      enable: true
+      ## 详细配置: https://github.com/imagemin/imagemin-webp#options
+      options: {}
+  font:
+    enable: false
+    ## 详细配置: https://github.com/Lete114/fontmin-spider#api
+    options: {}
+mmedia:
+  video:
+    default:
+      width: 100%
+  meting:
+    js: https://cdn.staticfile.org/meting/2.0.1/Meting.min.js
+  aplayer:
+    js: https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js
+    css: https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css
+  dplayer:
+    js: https://cdn.staticfile.org/dplayer/1.27.1/DPlayer.min.js
+    hls_js: https://cdn.staticfile.org/hls.js/1.4.10/hls.min.js
+    dash_js: https://jsd.onmicrosoft.cn/npm/dashjs/dist/dash.all.min.js
+    shaka_dash_js: https://cdn.staticfile.org/shaka-player/4.3.8/shaka-player.compiled.min.js
+    flv_js: https://cdn.staticfile.org/flv.js/1.6.2/flv.min.js
+    webtorrent_js: https://jsd.onmicrosoft.cn/npm/webtorrent/webtorrent.min.js
+  artplayer:
+    js: https://cdn.staticfile.org/artplayer/5.0.9/artplayer.min.js
+    hls_js: https://cdn.staticfile.org/hls.js/1.4.10/hls.min.js
+    dash_js: https://jsd.onmicrosoft.cn/npm/dashjs/dist/dash.all.min.js
+    shaka_dash_js: https://cdn.staticfile.org/shaka-player/4.3.8/shaka-player.compiled.min.js
+    flv_js: https://cdn.staticfile.org/flv.js/1.6.2/flv.min.js
+    webtorrent_js: https://jsd.onmicrosoft.cn/npm/webtorrent/webtorrent.min.js
+    default:
+      style: width:100%;aspect-ratio:16/9;center
+      contents:
+        autoSize: false
+        autoMini: false
+        fullscreen: true
+        fullscreenWeb: true
+        flip: true
+        playbackRate: true
+        setting: true
+        aspectRatio: true
+        screenshot: true
+  bilibili:
+    default:
+      page: 1
+      danmaku: true
+      allowfullscreen: allowfullscreen
+      sandbox: allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups
+      width: 100%
+      margin: auto
+  xigua:
+    default:
+      autoplay: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  - type: git
+    repository: git@github.com:LynxCatTheThird/lynxcatthethird.github.io.git
+    branch: main
+  - type: git
+    repository: git@github.com:LeptailTheFirst/LeptailTheFirst.github.io.git
+    branch: main
